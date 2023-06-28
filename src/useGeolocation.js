@@ -9,13 +9,14 @@ export function useGeolocation(){
 
     onMounted(()=>{
         if(inSupported)
-        watcher=navigator.geolocation.watchPosition(
+            watcher=navigator.geolocation.watchPosition(
             position=>(coords.value = position.coords)
         )
     })
 
     onUnmounted(()=>{
-        if(watcher) navigator.geolocation.clearWatch(watcher)
+        if(watcher) 
+            navigator.geolocation.clearWatch(watcher)
     })
 
     return {coords, inSupported}
